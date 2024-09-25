@@ -1,0 +1,14 @@
+.background-container {
+    background-image: url('/pexels-leonardho-1552252.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ensures the background covers the full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .faint-gray-bg {
+    background-color: rgba(5, 21, 141, 0.237); /* Light gray with 50% opacity */
+  }
+  

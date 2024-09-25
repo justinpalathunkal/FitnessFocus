@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import FitnessSignIn from './components/fitness-sign-in/fitness-sign-in';
+import FitnessTitleBanner from './components/fitness-title-banner/fitness-title-banner';
+import FitnessSliderTile from './components/fitness-slider-tile/fitnesss-slider-tile';
+import FitnessNavbar from './components/fitness-navbar/fitness-navbar';
+import FitnessArmsContent from './components/fitness-content/arms/fitness-content-arms';
+import FitnessChestContent from './components/fitness-content/chest/fitness-content-chest';
+
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <FitnessSignIn /> */}
+    <FitnessNavbar />
+    {/* <FitnessTitleBanner /> */}
+    {/* <FitnessSliderTile /> */}
+    {/* <FitnessArmsContent /> */}
+    <FitnessChestContent />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

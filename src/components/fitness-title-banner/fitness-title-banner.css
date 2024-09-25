@@ -1,0 +1,26 @@
+.banner {
+  position: relative;
+  height: 400px; 
+  overflow: hidden;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/pexels-victorfreitas-841130.jpg");
+  background-size: cover;
+  animation: moveBackground 10s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.title {
+  font-size: 10rem; /* Adjust the font size */
+}
