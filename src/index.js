@@ -7,6 +7,10 @@ import FitnessSliderTile from './components/fitness-slider-tile/fitnesss-slider-
 import FitnessNavbar from './components/fitness-navbar/fitness-navbar';
 import FitnessArmsContent from './components/fitness-content/arms/fitness-content-arms';
 import FitnessChestContent from './components/fitness-content/chest/fitness-content-chest';
+import FitnessBackContent from './components/fitness-content/back/fitness-back-content';
+import FitnessLegsContent from './components/fitness-content/legs/fitness-legs-content';
+import FitnessShoulderContent from './components/fitness-content/shoulders/fitness-shoulders-content';
+import FitnessTricepContent from './components/fitness-content/triceps/fitness-tricep-content';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -18,8 +22,12 @@ root.render(
     {/* <FitnessTitleBanner /> */}
     {/* <FitnessSliderTile /> */}
     {/* <FitnessArmsContent /> */}
-    <FitnessChestContent />
-  </React.StrictMode>
+    {/* <FitnessChestContent /> */}
+    {/* <FitnessBackContent /> */}
+    {/* <FitnessLegsContent /> */}
+    {/* <FitnessShoulderContent /> */}
+    <FitnessTricepContent />
+   </React.StrictMode>
 );
 
 reportWebVitals();

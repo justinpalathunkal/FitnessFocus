@@ -1,9 +1,10 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/components/**/*.js"],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}', // Target all JavaScript, TypeScript, and JSX/TSX files
+    './public/index.html', // Include HTML files
+  ],
   theme: {
     extend: {},
   },
   plugins: ['@tailwindcss/forms'],
 }
-

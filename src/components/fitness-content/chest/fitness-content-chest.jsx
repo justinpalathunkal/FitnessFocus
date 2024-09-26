@@ -68,15 +68,12 @@ export default function FitnessChestContent() {
           </p>
           
         </div>
-
       <ChestPressModel />
       <p className="text-2xl text-gray-500 mt-10">
             Here is a model to aid you in further understanding the muscles being targeted for the chest stretch
-          </p>
-          
+      </p>
       <ChestFlyModel />
       </div>
-      
     </div>
   );
 }
