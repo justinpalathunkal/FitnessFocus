@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
 import FitnessSignIn from './components/fitness-sign-in/fitness-sign-in';
+import FitnessAbout from './components/fitness-about/fitness-about';
 import FitnessTitleBanner from './components/fitness-title-banner/fitness-title-banner';
 import FitnessSliderTile from './components/fitness-slider-tile/fitnesss-slider-tile';
 import FitnessNavbar from './components/fitness-navbar/fitness-navbar';
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/legs" element={<FitnessLegsContent />} />
         <Route path="/shoulders" element={<FitnessShoulderContent />} />
         <Route path="/triceps" element={<FitnessTricepContent />} />
+        <Route path="/about" element={<FitnessAbout />} />
       </Routes>
     </Router>
   );
