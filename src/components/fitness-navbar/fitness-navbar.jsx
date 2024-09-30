@@ -1,10 +1,12 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useLocation, Link } from 'react-router-dom'
+import profileIcon from '../../icons/dumbbell_6063145.jpg'
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Repository', href: '#', current: false },
-  { name: 'About', href: '#', current: false },
+  { name: 'Home', href: '/', current: false },
+  { name: 'Repository', href: 'https://github.com/justinpalathunkal/FocusFitness', current: false },
+  { name: 'About', href: '/about', current: false },
 ]
 
 function classNames(...classes) {
@@ -12,12 +14,13 @@ function classNames(...classes) {
 }
 
 export default function FitnessNavbar() {
+  const location = useLocation(); 
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* Mobile menu button*/}
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
@@ -29,17 +32,17 @@ export default function FitnessNavbar() {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
+                    to={item.href}
                     className={classNames(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      location.pathname === item.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'rounded-md px-3 py-2 text-sm font-medium',
                     )}
+                    aria-current={location.pathname === item.href ? 'page' : undefined}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -52,7 +55,7 @@ export default function FitnessNavbar() {
                   <span className="sr-only">Open user menu</span>
                   <img
                     alt=""
-                    src="/pexels-victorfreitas-841130.jpg"
+                    src= {profileIcon}
                     className="h-8 w-8 rounded-full"
                   />
                 </MenuButton>
@@ -77,13 +80,13 @@ export default function FitnessNavbar() {
           {navigation.map((item) => (
             <DisclosureButton
               key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
+              as={Link}  
+              to={item.href}
               className={classNames(
-                item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                location.pathname === item.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                 'block rounded-md px-3 py-2 text-base font-medium',
               )}
+              aria-current={location.pathname === item.href ? 'page' : undefined}
             >
               {item.name}
             </DisclosureButton>

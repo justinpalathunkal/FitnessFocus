@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
 import FitnessSignIn from './components/fitness-sign-in/fitness-sign-in';
 import FitnessTitleBanner from './components/fitness-title-banner/fitness-title-banner';
@@ -14,20 +15,36 @@ import FitnessTricepContent from './components/fitness-content/triceps/fitness-t
 
 import reportWebVitals from './reportWebVitals';
 
+const App = () => {
+  return (
+    <Router>
+      <FitnessNavbar />
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <>
+              <FitnessTitleBanner />
+              <FitnessSliderTile />
+            </>
+          } 
+        />
+        <Route path="/arms" element={<FitnessArmsContent />} />
+        <Route path="/chest" element={<FitnessChestContent />} />
+        <Route path="/back" element={<FitnessBackContent />} />
+        <Route path="/legs" element={<FitnessLegsContent />} />
+        <Route path="/shoulders" element={<FitnessShoulderContent />} />
+        <Route path="/triceps" element={<FitnessTricepContent />} />
+      </Routes>
+    </Router>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <FitnessSignIn /> */}
-    <FitnessNavbar />
-    {/* <FitnessTitleBanner /> */}
-    {/* <FitnessSliderTile /> */}
-    {/* <FitnessArmsContent /> */}
-    {/* <FitnessChestContent /> */}
-    {/* <FitnessBackContent /> */}
-    {/* <FitnessLegsContent /> */}
-    {/* <FitnessShoulderContent /> */}
-    <FitnessTricepContent />
-   </React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
 
 reportWebVitals();
