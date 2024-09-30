@@ -1,6 +1,6 @@
-# Welcome to Focus Fitness
+# Welcome to Fitness Focus
 
-This is a project which aims to centralize all fitness information from exercises, dieting, tracking and more!
+This application aims to centralize all fitness information from exercises, dieting, tracking and more!
 
 ## How to Start
 
