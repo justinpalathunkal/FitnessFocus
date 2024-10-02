@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
 import FitnessSignIn from './components/fitness-sign-in/fitness-sign-in';
+import FitnessSignUp from './components/fitness-sign-up/fitness-sign-up'
 import FitnessAbout from './components/fitness-about/fitness-about';
 import FitnessTitleBanner from './components/fitness-title-banner/fitness-title-banner';
 import FitnessSliderTile from './components/fitness-slider-tile/fitnesss-slider-tile';
@@ -19,14 +20,16 @@ import reportWebVitals from './reportWebVitals';
 const App = () => {
   return (
     <Router>
-      <FitnessNavbar />
+      {/* <FitnessNavbar /> */}
       <Routes>
         <Route 
           path="/" 
           element={
             <>
-              <FitnessTitleBanner />
-              <FitnessSliderTile />
+              {/* <FitnessTitleBanner />
+              <FitnessSliderTile /> */}
+              {/* <FitnessSignIn /> */}
+              <FitnessSignUp />
             </>
           } 
         />
