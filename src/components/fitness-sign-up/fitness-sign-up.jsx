@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import "./fitness-sign-up.css";
 
 export default function FitnessSignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState(''); 
+  const navigate = useNavigate(); // Hook to programmatically redirect
 
+  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -15,6 +18,7 @@ export default function FitnessSignUp() {
     };
 
     try {
+      // Make a POST request to the /signup endpoint
       const response = await fetch('http://localhost:8080/signup', {
         method: 'POST',
         headers: {
@@ -24,8 +28,7 @@ export default function FitnessSignUp() {
       });
 
       if (response.ok) {
-        const responseData = await response.json();
-        setMessage(`Sign-up successful! User ID: ${responseData.user_id}`);
+        navigate('/'); 
       } else {
         setMessage('Sign-up failed. Please try again.');
       }
@@ -45,8 +48,10 @@ export default function FitnessSignUp() {
                 Sign up here
               </h2>
             </div>
+
+            {/* Display success or error message */}
             {message && <p className="text-center text-sm text-red-500">{message}</p>}
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-300">
@@ -95,6 +100,13 @@ export default function FitnessSignUp() {
                 </button>
               </div>
             </form>
+
+            <p className="mt-5 text-center text-sm text-gray-300">
+              Already have an account?{' '}
+              <a href="/" className="font-semibold leading-6 text-indigo-300 hover:text-indigo-500">
+                Sign In
+              </a>
+            </p>
           </div>
         </div>
       </div>

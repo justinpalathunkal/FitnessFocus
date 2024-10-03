@@ -1,6 +1,46 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // For redirection
 import "./fitness-sign-in.css";
 
 export default function FitnessSignIn() {
+  // State for form inputs
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState(''); // To show success or error messages
+  const navigate = useNavigate(); // Hook to programmatically redirect
+
+  // Handle form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    const requestData = {
+      email,
+      password
+    };
+
+    try {
+      // Make a POST request to the /signin endpoint
+      const response = await fetch('http://localhost:8080/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData), 
+      });
+
+      if (response.ok) {
+        setTimeout(() => {
+          navigate('/home');
+        }, 1000); 
+      } else {
+        setMessage('Sign-in failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error during sign-in:', error);
+      setMessage('Error during sign-in. Please check your connection.');
+    }
+  };
+
   return (
     <>
       <div className="background-container">
@@ -11,7 +51,11 @@ export default function FitnessSignIn() {
                 Sign in to your account
               </h2>
             </div>
-            <form action="#" method="POST" className="space-y-6">
+
+            {/* Display the success or error message */}
+            {message && <p className="text-center text-sm text-red-500">{message}</p>}
+
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-300">
                   Email address
@@ -23,6 +67,8 @@ export default function FitnessSignIn() {
                     type="email"
                     required
                     autoComplete="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} // Update state on change
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -33,11 +79,6 @@ export default function FitnessSignIn() {
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-300">
                     Password
                   </label>
-                  {/* <div className="text-sm">
-                    <a href="#" className="font-semibold text-indigo-300 hover:text-indigo-500">
-                      Forgot password?
-                    </a>
-                  </div> */}
                 </div>
                 <div className="mt-2">
                   <input
@@ -46,6 +87,8 @@ export default function FitnessSignIn() {
                     type="password"
                     required
                     autoComplete="current-password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)} // Update state on change
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -63,7 +106,7 @@ export default function FitnessSignIn() {
 
             <p className="mt-10 text-center text-sm text-gray-300">
               Not a member?{' '}
-              <a href="#" className="font-semibold leading-6 text-indigo-300 hover:text-indigo-500">
+              <a href="/signup" className="font-semibold leading-6 text-indigo-300 hover:text-indigo-500">
                 Sign Up
               </a>
             </p>

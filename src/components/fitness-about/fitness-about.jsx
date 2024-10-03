@@ -5,7 +5,6 @@ import profileImage from './images/profile.jpg'
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-x-8 xl:grid-cols-2">
-            {/* Column for text */}
             <div className="max-w-2xl">
               <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Welcome to Fitness Focus!</h2>
               <p className="mt-6 text-xl leading-8 text-gray-600">
