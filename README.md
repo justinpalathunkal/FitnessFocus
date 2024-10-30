@@ -5,6 +5,8 @@ This application aims to centralize all fitness information from exercises, diet
 ## How to Start
 
 Run  `npm start` to open the frontend application.
+Run `go run signup.go` to open server
+Run ``
 
 ### Future Improvements
 
